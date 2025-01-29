@@ -1,0 +1,45 @@
+class Employee:
+    def __init__ (
+            self,
+            designation: str = 'Developer',
+            frontend: bool = False,
+            backend: bool = False,
+            experience: int = 0,
+            location: str = 'Remote'
+    ):
+       
+        self.designation = designation
+        self.frontend = frontend
+        self.backend = backend
+        self.experience = experience
+        self.location = location
+
+    def __repr__(self):
+     
+        return f"{self.designation} (FrontEnd: {self.frontend}, BackEnd: {self.backend}, Experience: {self.experience} years, Location: {self.location})"
+
+    def verifier(self):
+        
+        if self.frontend and self.backend:
+            role = "Full Stack Developer"
+        elif self.frontend:
+            role = "Frontend Developer"
+        elif self.backend:
+            role = "Backend Developer"
+        else:
+            role = "Unspecified Role"
+
+        return f"{self.designation} ({role}) with {self.experience} years of experience, Location: {self.location}"
+
+
+if __name__ == '__main__':
+   
+    employees = [
+        Employee(designation="Aishwarya Shetty", frontend=True, backend=False, experience=3,  location="New York"),
+        Employee(designation="Abhinav Singh", frontend=False, backend=True, experience=5, location="Berlin"),
+        Employee(designation="Arpit Rai", frontend=True, backend=True, experience=7, location="London")
+    ]
+
+   
+    for employee in employees:
+        print(employee.verifier())
